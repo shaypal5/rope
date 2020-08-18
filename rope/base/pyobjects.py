@@ -220,8 +220,10 @@ class PyDefinedObject(object):
     def get_doc(self):
         if len(self.get_ast().body) > 0:
             expr = self.get_ast().body[0]
-            if isinstance(expr, ast.Expr) and \
-               isinstance(expr.value, ast.Str):
+            ast_Str = astConstant if hasattr(ast, "Constant") else ast.Str.
+            # if isinstance(expr, ast.Expr) and \
+            #    isinstance(expr.value, ast.Str):
+            if isinstance(expr, ast.Expr) and isinstance(expr.value, ast_Str):
                 docstring = expr.value.s
                 coding = self.get_module().coding
                 return _decode_data(docstring, coding)

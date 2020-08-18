@@ -46,7 +46,7 @@ def get_version():
     return version
 
 
-setup(name='rope',
+setup(name='shaypal5rope',
       version=get_version(),
       description='a python refactoring library...',
       long_description=get_long_description(),
